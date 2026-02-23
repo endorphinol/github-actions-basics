@@ -1,0 +1,20 @@
+name: End to end challenge
+on: [push]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get repository code
+        uses: actions/checkout@4
+      
+      - name: Get Node.js
+        uses: actions/setup-node@v3
+        with: 
+          node-version: 16
+      
+      - name: Install NPM
+        run: npm install
+      
+      - name: Run test
+        run: npm test
